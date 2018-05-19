@@ -1,0 +1,82 @@
+<style>
+table {
+   width: 100%;
+   border: 1px solid #000;
+}
+th, td {
+   width: 25%;
+   text-align: left;
+   vertical-align: top;
+   border: 1px solid #000;
+   border-collapse: collapse;
+   padding: 0.3em;
+   caption-side: bottom;
+}
+caption {
+   padding: 0.3em;
+   color: #fff;
+    background: #000;
+}
+th {
+   background: #eee;
+}
+
+.odd th, .odd td {
+   background: #eee;
+}
+
+</style>
+
+
+
+<div class='form-group'>
+    <div class="row">
+        <div class="col-lg-9">
+
+        </div>
+        <div class="col-lg-1">
+            <a href="#" class="btn btn-info btn-block">
+                <span class="glyphicon glyphicon-list-alt"></span>
+            </a>
+        </div>
+       
+        <div class="col-lg-1">
+            <a href="#" class="btn btn-info btn-block">
+                <span class="glyphicon glyphicon-plus"></span>
+            </a>
+        </div>
+        <h1 style="font-family: Arial, Helvetica, sans-serif">Pago de Estudiantes</h1>
+        <table  style="font-family: Arial, Helvetica, sans-serif">
+            <tr>
+                <th>Nombre</th>
+                <th>Identificacion</th>
+                <th>correo</th>
+                <th>Concepto</th>
+                <th>Nro Pago</th>
+                <th>Valor Pagado</th>
+                <th>Imprimir</th>
+            </tr>
+        {% for pago in  estudiantes_list.Pagos %}
+            {% for estudiante in  estudiantes_list.estudiantes %}
+                {%if pago.estudiante == estudiante %}
+            <tr>
+            <td>{{estudiante.nombre}}</td>
+            <td>{{estudiante.identificacion}}</td>
+            <td>{{estudiante.correo}}</td>
+            <td>{{pago.concepto}}</td>
+            <td>{{pago.id}}</td>
+            <td>{{pago.cantidadPago}}</td>
+            <td><a href="{% url 'financiero:reporte-estudiantes' %}?pago={{pago.id}}&estudiante={{estudiante.identificacion}}" class="btn btn-info btn-block">
+                <span class="glyphicon glyphicon-file">recibo</span>
+            </a></td>
+            </tr>
+            {%endif%}
+            {%endfor%}
+        {%endfor%}
+        <div class="col-lg-1">
+            
+        </div>
+        </table>
+        
+    </div>
+</div>
