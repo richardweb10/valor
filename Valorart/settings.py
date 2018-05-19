@@ -74,14 +74,23 @@ WSGI_APPLICATION = 'Valorart.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql',
+#		'NAME': 'valorart',
+#		'HOST':'localhost', 
+#		'USER': 'root',
+#		'PASSWORD': '2009114082', 
+#   }
+#}
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
 		'NAME': 'valorart',
-		'HOST':'localhost', 
-		'USER': 'root',
-		'PASSWORD': '2009114082', 
-    }
+		'HOST':'richardweb.mysql.pythonanywhere-services.com', 
+		'USER': 'richardweb',
+		'PASSWORD': '2009114082_Ri', 
+   }
 }
 
 
